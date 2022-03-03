@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Recipees</title>
+</head>
+
+<body>
+    <h1>My Recipees</h1>
+
+    <section>
+
+        <h2>New Recipee:</h2>
+
+        <form action="" method="post">
+
+            <fieldset>
+                <label for="recipee-name">Recipee Name</label>
+                <input type="text" name="" id="recipee-name" placeholder="Steamed Black Beans" required maxlength="256">
+            </fieldset>
+
+            <fieldset>
+                <legend>Ingredients:</legend>
+
+                <ol id="ingredients-list">
+                    <li>
+                        <input type="text" placeholder="250g Black Beans">
+                        <input type="button" value="Delete">
+                    </li>
+                </ol>
+
+                <input type="button" id="add-ingredients-button" value="Add">
+                <input type="submit" value="Save">
+            </fieldset>
+
+            <fieldset>
+                <legend>Prepare Methods: </legend>
+                <textarea name="prepare-methods" id="" placeholder="mmmmmm... it's smelling"></textarea>
+            </fieldset>
+
+        </form>
+
+    </section>
+    <br><br><br>
+    <section>
+
+        <form action="">
+
+            <fieldset>
+                <legend>Cataloged Recipees:</legend>
+
+                <label for="cataloged-recipees-dropdown">Choose a recipee</label>
+                <input type="text" id="cataloged-recipees-dropdown" list="recipees">
+                <datalist id="recipees">
+                    <option value="Steamed Black Beans"></option>
+                    <option value="Steamed Chick Peas"></option>
+                    <option value="Baked Sweet Potatoes"></option>
+                    <option value="Baked Chicken Breasts"></option>
+                    <option value="Omelette"></option>
+                </datalist>
+            </fieldset>
+
+        </form>
+
+    </section>
+
+    <script src="createRecipee.js"></script>
+
+</body>
+
+</html>

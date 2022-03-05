@@ -15,7 +15,7 @@
 
         <h2>New Recipee:</h2>
 
-        <form action="" method="post">
+        <form action="test()" method="post">
 
             <fieldset>
                 <label for="recipee-name">Recipee Name</label>
@@ -47,14 +47,14 @@
     <br><br><br>
     <section>
 
-        <form action="">
+        <form onsubmit="">
 
             <fieldset>
                 <legend>Cataloged Recipees:</legend>
 
                 <label for="cataloged-recipees-dropdown">Choose a recipee</label>
-                <input type="text" id="cataloged-recipees-dropdown" list="recipees">
-                <datalist id="recipees">
+                <input type="text" id="cataloged-recipees-dropdown" list="recipees-datalist">
+                <datalist id="recipees-datalist">
                     <option value="Steamed Black Beans"></option>
                     <option value="Steamed Chick Peas"></option>
                     <option value="Baked Sweet Potatoes"></option>
@@ -67,7 +67,7 @@
 
     </section>
 
-    <script src="createRecipee.js"></script>
+    <script type="module" src="createRecipee.js"></script>
 
 </body>
 

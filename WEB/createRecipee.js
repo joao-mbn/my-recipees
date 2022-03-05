@@ -1,7 +1,11 @@
+import { httpGet } from './httpService.js';
+
 var ingredientsList = document.getElementById('ingredients-list');
 var addIngredientsButton = document.getElementById('add-ingredients-button');
 
-addIngredientsButton.onclick = function addIngredient() {
+addIngredientsButton.addEventListener('click', (event) => { addIngredient() });
+
+function addIngredient() {
     var li = document.createElement('li')
 
     var input = document.createElement('input')
@@ -16,3 +20,16 @@ addIngredientsButton.onclick = function addIngredient() {
     li.appendChild(deleteButton)
     ingredientsList.appendChild(li)
 }
+
+function getRecipees() {
+    var recipees = httpGet('recipees/');
+    var recipeesDatalist = document.getElementById('recipees-datalist');
+
+    for (let i = 0; i < recipees.length; i++) {
+        recipeeOption = document.createElement('option');
+        recipeeOption.value = recipees[i];
+        recipeesDatalist.appendChild(recipeeOption);
+    }
+}
+
+getRecipees();

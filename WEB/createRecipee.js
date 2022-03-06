@@ -22,7 +22,7 @@ function addIngredient() {
 }
 
 function getRecipees() {
-    var recipees = JSON.parse(httpGet('recipees')).response;
+    var recipees = JSON.parse(httpGet('recipees')).response.map(obj => obj.recipeeName);
     var recipeesDatalist = document.getElementById('recipees-datalist');
 
     for (let i = 0; i < recipees.length; i++) {

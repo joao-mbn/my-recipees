@@ -1,18 +1,18 @@
 var configs = require('../.vscode/configs');
-var mySql = require(configs.GLOBAL_PATH + 'mysql2');
+var mySql = require(configs.GLOBAL_PATH + 'mysql2/promise');
 
-var connection = mySql.createConnection({
-    host: configs.HOST,
-    user: configs.USER,
-    password: configs.PASSWORD,
-    database: configs.DATABASE
-})
+exports.executeQuery = async function (query) {
+    return await (await connection()).execute(query)
+}
 
-connection.connect(error => {
-    if (error) throw error;
-    console.log('Successfully connected to database!');
-    connection.query(sql, (error, result) => {
-        if (error) throw error;
-        return result;
+async function connection() {
+    return await mySql.createConnection({
+        host: configs.HOST,
+        user: configs.USER,
+        password: configs.PASSWORD,
+        database: configs.DATABASE
     })
-})
+}
+
+
+

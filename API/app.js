@@ -1,10 +1,9 @@
 var http = require('http');
 var URL = require('url');
-var { recipeesControler } = require('./recipeesController')
+var { recipeesController } = require('./recipeesController')
+var { PORT } = require('../.vscode/configs')
 
-const port = 5005;
-
-http.createServer((req, res) => {
+http.createServer(async (req, res) => {
 
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -17,7 +16,7 @@ http.createServer((req, res) => {
     var response;
     switch (controller) {
         case 'recipees':
-            response = recipeesControler(endPoint)
+            response = await recipeesController(endPoint)
             break;
 
         default:
@@ -28,4 +27,4 @@ http.createServer((req, res) => {
     res.write(JSON.stringify({ "response": response }));
     res.end();
 
-}).listen(port, () => console.log(`it\'s running! Available on: http://localhost:${port}`));
+}).listen(PORT, () => console.log(`it\'s running! Available on: http://localhost:${PORT}`));

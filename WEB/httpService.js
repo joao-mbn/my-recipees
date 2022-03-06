@@ -1,4 +1,4 @@
-var baseUrl = 'http://127.0.0.1:6000/';
+var baseUrl = 'http://127.0.0.1:5005/';
 
 export function httpGet(controller) {
     var url = baseUrl + controller;

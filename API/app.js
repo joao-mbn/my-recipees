@@ -1,20 +1,30 @@
-
 var http = require('http');
 var URL = require('url');
+var { recipeesControler } = require('./recipeesController')
+
 const port = 5005;
 
 http.createServer((req, res) => {
-    var endPoint = URL.parse(req.url, true).pathname.split('/')[1];
+
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Content-Type', 'application/json');
+
+    var path = URL.parse(req.url, true).pathname.split('/').filter(path => path !== '');
+    var controller = path[0]
+    var endPoint = path[1]
+
     var response;
-    switch (endPoint) {
+    switch (controller) {
         case 'recipees':
-            response = ['Cinnamon and Banana Sugarless Cake', 'Pumpkins with Cocoa and Peanut Butter']
+            response = recipeesControler(endPoint)
             break;
 
         default:
             response = []
             break;
     }
+
     res.write(JSON.stringify({ "response": response }));
     res.end();
 

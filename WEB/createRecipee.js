@@ -3,16 +3,16 @@ import { httpGet } from './httpService.js';
 var ingredientsList = document.getElementById('ingredients-list');
 var addIngredientsButton = document.getElementById('add-ingredients-button');
 
-addIngredientsButton.addEventListener('click', (event) => { addIngredient() });
+addIngredientsButton.addEventListener('click', event => { addIngredient() });
 
 function addIngredient() {
-    var li = document.createElement('li')
+    var li = document.createElement('LI')
 
-    var input = document.createElement('input')
+    var input = document.createElement('INPUT')
     input.type = 'text';
     input.placeholder = '1 Teaspoon of Salt'
 
-    var deleteButton = document.createElement('input')
+    var deleteButton = document.createElement('INPUT')
     deleteButton.type = 'button'
     deleteButton.value = 'Delete'
 
@@ -22,11 +22,11 @@ function addIngredient() {
 }
 
 function getRecipees() {
-    var recipees = httpGet('recipees/');
+    var recipees = JSON.parse(httpGet('recipees')).response;
     var recipeesDatalist = document.getElementById('recipees-datalist');
 
     for (let i = 0; i < recipees.length; i++) {
-        recipeeOption = document.createElement('option');
+        var recipeeOption = document.createElement('OPTION');
         recipeeOption.value = recipees[i];
         recipeesDatalist.appendChild(recipeeOption);
     }

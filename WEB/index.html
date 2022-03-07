@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>My Recipees</title>
 </head>
 
@@ -15,17 +16,17 @@
 
         <h2>New Recipee:</h2>
 
-        <form action="test()" method="post">
+        <form id="new-recipee">
 
             <fieldset>
                 <label for="recipee-name">Recipee Name</label>
-                <input type="text" name="" id="recipee-name" placeholder="Steamed Black Beans" required maxlength="256">
+                <input type="text" id="recipee-name" placeholder="Steamed Black Beans" required maxlength="256">
             </fieldset>
 
             <fieldset>
                 <legend>Ingredients:</legend>
 
-                <ol id="ingredients-list">
+                <ol id="ingredients-list" class="ingredients-list">
                     <li>
                         <input type="text" placeholder="250g Black Beans">
                         <input type="button" value="Delete">
@@ -46,7 +47,7 @@
     </section>
     <section>
 
-        <form onsubmit="">
+        <form>
 
             <fieldset>
                 <legend>Cataloged Recipees:</legend>

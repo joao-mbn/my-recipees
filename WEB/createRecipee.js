@@ -37,7 +37,7 @@ function addIngredient() {
     ingredientsList.appendChild(li)
 }
 
-function postRecipee(scope) {
+function postRecipee() {
 
     event.preventDefault();
     var recipeeName = recipeeNameText.value;

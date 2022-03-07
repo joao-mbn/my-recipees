@@ -9,5 +9,3 @@ async function getRecipees() {
     const [rows] = await executeQuery(query)
     return rows
 }
-
-getRecipees()

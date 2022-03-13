@@ -1,17 +1,17 @@
 var recipeesRepository = require('./recipeesRepository');
+var recipeesService = require('./recipeesService');
 
-exports.recipeesController = async function (endPoint) {
-    let response = []
+exports.recipeesController = async function (endPoint, data) {
 
     switch (endPoint) {
-        case 'getFancyRecipees':
-            response = ['Cinnamon and Banana Sugarless Cake', 'Pumpkins with Cocoa and Peanut Butter']
-            break;
+
+        case 'postRecipee':
+            return await recipeesService.postRecipee(data);
 
         case 'getRecipees':
+            return await recipeesRepository.getRecipees();
+
         default:
-            response = await recipeesRepository.getRecipees();
-            break;
+            return [];
     }
-    return response;
 }

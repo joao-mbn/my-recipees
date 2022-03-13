@@ -1,10 +1,13 @@
+import { httpPost } from "../httpService.js";
+
 var ingredientsList = document.getElementById('ingredients-list');
 var addIngredientsButton = document.getElementById('add-ingredients-button');
 var newRecipeeForm = document.getElementById('new-recipee');
-var recipeeNameText = document.getElementById('recipee-name');
+var recipeeName = document.getElementById('recipee-name');
+var prepareMethods = document.getElementById('prepare-methods');
 
 addIngredientsButton.addEventListener('click', event => { addIngredient() });
-newRecipeeForm.addEventListener('submit', event => { postRecipee() });
+newRecipeeForm.addEventListener('submit', event => { postRecipee(event) });
 
 addIngredient();
 
@@ -30,10 +33,10 @@ function deleteIngredient(event) {
     deleteButton.parentElement.remove();
 }
 
-function postRecipee() {
+function postRecipee(event) {
 
     event.preventDefault();
-    var recipeeName = recipeeNameText.value;
+
     let ingredients = [];
     var children = ingredientsList.children;
 
@@ -48,6 +51,12 @@ function postRecipee() {
         }
     }
 
-    return ingredients
+    var data = {
+        recipeeName: recipeeName.value,
+        ingredients: ingredients,
+        prepareMethods: prepareMethods.value
+    }
+
+    httpPost('recipees/postRecipee', data);
 
 }

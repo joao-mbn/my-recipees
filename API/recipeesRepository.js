@@ -1,7 +1,15 @@
 var { executeQuery } = require('./dataBaseConnection')
 
 module.exports = {
-    getRecipees
+    getRecipees,
+    postRecipee
+}
+
+async function postRecipee(data) {
+
+    var query = "INSERT INTO myRecipees (recipee_name, ingredients, prepare_method) VALUES (?, ?, ?)";
+    return await executeQuery(query, [data.recipeeName, data.ingredients, data.prepareMethods]);
+
 }
 
 async function getRecipees() {

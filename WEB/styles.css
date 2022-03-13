@@ -27,8 +27,3 @@ a {
     width: 50vw;
     height: 50vh;
 }
-
-.ingredients-list {
-    display: flex;
-    flex-direction: column;
-}

@@ -1,0 +1,32 @@
+<section>
+
+    <h2>New Recipee:</h2>
+
+    <form id="new-recipee">
+
+        <fieldset>
+            <label for="recipee-name">Recipee Name</label>
+            <input type="text" id="recipee-name" placeholder="Steamed Black Beans" required maxlength="256">
+        </fieldset>
+
+        <fieldset>
+            <legend>Ingredients:</legend>
+
+            <ol id="ingredients-list" class="ingredients-list">
+                <!-- dinamically generated -->
+            </ol>
+
+            <input type="button" id="add-ingredients-button" value="Add">
+            <input type="submit" value="Save">
+        </fieldset>
+
+        <fieldset>
+            <legend>Prepare Methods: </legend>
+            <textarea name="prepare-methods" id="" placeholder="mmmmmm... it's smelling"></textarea>
+        </fieldset>
+
+    </form>
+
+</section>
+
+<script type="module" src="./addRecipee.js"></script>

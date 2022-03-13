@@ -10,60 +10,19 @@
 </head>
 
 <body>
-    <h1>My Recipees</h1>
 
-    <section>
+    <aside class="side-bar">
+        <h1>My Recipees</h1>
 
-        <h2>New Recipee:</h2>
+        <nav class="side-nav">
+            <a href="#" onclick="goTo('add')">Add a Recipee</a>
+            <a href="#" onclick="goTo('get')">Get a Recipee</a>
+        </nav>
+    </aside>
 
-        <form id="new-recipee">
+    <div id="main-page"></div>
 
-            <fieldset>
-                <label for="recipee-name">Recipee Name</label>
-                <input type="text" id="recipee-name" placeholder="Steamed Black Beans" required maxlength="256">
-            </fieldset>
-
-            <fieldset>
-                <legend>Ingredients:</legend>
-
-                <ol id="ingredients-list" class="ingredients-list">
-                    <li>
-                        <input type="text" placeholder="250g Black Beans"><input type="button" value="Delete">
-                    </li>
-                </ol>
-
-                <input type="button" id="add-ingredients-button" value="Add">
-                <input type="submit" value="Save">
-            </fieldset>
-
-            <fieldset>
-                <legend>Prepare Methods: </legend>
-                <textarea name="prepare-methods" id="" placeholder="mmmmmm... it's smelling"></textarea>
-            </fieldset>
-
-        </form>
-
-    </section>
-    <section>
-
-        <form>
-
-            <fieldset>
-                <legend>Cataloged Recipees:</legend>
-
-                <label for="cataloged-recipees-dropdown">Choose a recipee</label>
-                <input type="text" id="cataloged-recipees-dropdown" list="recipees-datalist">
-                <datalist id="recipees-datalist">
-                    <!-- dinamically generated -->
-                </datalist>
-            </fieldset>
-
-        </form>
-
-    </section>
-
-    <script type="module" src="createRecipee.js"></script>
-
+    <script src="./route.js"></script>
 </body>
 
 </html>

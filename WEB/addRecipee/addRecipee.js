@@ -1,6 +1,3 @@
-import { httpGet } from './httpService.js';
-
-var recipeesDatalist = document.getElementById('recipees-datalist');
 var ingredientsList = document.getElementById('ingredients-list');
 var addIngredientsButton = document.getElementById('add-ingredients-button');
 var newRecipeeForm = document.getElementById('new-recipee');
@@ -9,17 +6,7 @@ var recipeeNameText = document.getElementById('recipee-name');
 addIngredientsButton.addEventListener('click', event => { addIngredient() });
 newRecipeeForm.addEventListener('submit', event => { postRecipee() });
 
-getRecipees();
-
-function getRecipees() {
-    var recipees = JSON.parse(httpGet('recipees')).response.map(obj => obj.recipeeName);
-
-    for (let i = 0; i < recipees.length; i++) {
-        var recipeeOption = document.createElement('OPTION');
-        recipeeOption.value = recipees[i];
-        recipeesDatalist.appendChild(recipeeOption);
-    }
-}
+addIngredient();
 
 function addIngredient() {
     var li = document.createElement('LI')
@@ -31,10 +18,16 @@ function addIngredient() {
     var deleteButton = document.createElement('INPUT')
     deleteButton.type = 'button'
     deleteButton.value = 'Delete'
+    deleteButton.addEventListener('click', event => { deleteIngredient(event) });
 
     li.appendChild(input)
     li.appendChild(deleteButton)
     ingredientsList.appendChild(li)
+}
+
+function deleteIngredient(event) {
+    var deleteButton = event.target;
+    deleteButton.parentElement.remove();
 }
 
 function postRecipee() {

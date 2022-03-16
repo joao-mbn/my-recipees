@@ -33,9 +33,7 @@ function deleteIngredient(event) {
     deleteButton.parentElement.remove();
 }
 
-function postRecipee(event) {
-
-    event.preventDefault();
+function postRecipee() {
 
     let ingredients = [];
     var children = ingredientsList.children;

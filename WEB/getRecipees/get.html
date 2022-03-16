@@ -6,13 +6,19 @@
             <legend>Cataloged Recipees:</legend>
 
             <label for="cataloged-recipees-dropdown">Choose a recipee</label>
-            <input type="text" id="cataloged-recipees-dropdown" list="recipees-datalist">
-            <datalist id="recipees-datalist">
+            <select id="cataloged-recipees-dropdown">
                 <!-- dinamically generated -->
-            </datalist>
+            </select>
         </fieldset>
 
     </form>
+
+    <ol id="ingredients-list">
+        <!-- dinamically generated -->
+    </ol>
+    <ul id="prepare-method">
+        <!-- dinamically generated -->
+    </ul>
 
 </section>
 <script type="module" src="./getRecipee.js"></script>

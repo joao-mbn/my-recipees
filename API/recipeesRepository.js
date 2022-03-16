@@ -13,7 +13,13 @@ async function postRecipee(data) {
 }
 
 async function getRecipees() {
-    var query = 'select recipee_name as "recipeeName" from myRecipees';
+    var query = `
+        select
+            recipee_id as "recipeeId",
+            recipee_name as "recipeeName",
+            ingredients,
+            prepare_method as "prepareMethod"
+        from myRecipees`;
     const [rows] = await executeQuery(query)
     return rows
 }
